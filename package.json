@@ -1,0 +1,19 @@
+{
+  "name": "vebox",
+  "private": true,
+  "version": "2.0.0",
+  "description": "VEBOX monorepo: server/ (Go) + web/ (React). npm workspaces \u2014 buyruqlar repo ildizida.",
+  "workspaces": [
+    "web"
+  ],
+  "engines": {
+    "node": ">=20.19"
+  },
+  "scripts": {
+    "build": "npm run build -w vebox-web",
+    "dev": "npm run dev -w vebox-web",
+    "preview": "npm run preview -w vebox-web",
+    "test": "npm run test -w vebox-web",
+    "typecheck": "npm run typecheck -w vebox-web"
+  }
+}

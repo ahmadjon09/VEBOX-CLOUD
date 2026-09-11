@@ -1,0 +1,13 @@
+{
+  "name": "VEBOX — Media Cloud API",
+  "short_name": "VEBOX",
+  "description": "Rasm va M4A/MP3 audio yuklang, bir so'rovda CDN havola oling.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1e1e1e",
+  "theme_color": "#007acc",
+  "icons": [
+    { "src": "/logo.png", "sizes": "321x321", "type": "image/png", "purpose": "any" },
+    { "src": "/logo.png", "sizes": "321x321", "type": "image/png", "purpose": "maskable" }
+  ]
+}

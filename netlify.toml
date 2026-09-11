@@ -1,0 +1,39 @@
+# VEBOX — Netlify konfiguratsiyasi (faqat frontend; Go serveri `server/` alohida
+# host'da ishlaydi va Netlify'da build qilinmaydi).
+#
+# Muhim: `web/` — npm workspace, shuning uchun lockfile repo ildizida
+# (package-lock.json). `npm ci` ildizda ishlaydi va `web/dist` ga hoist qiladi;
+# `web/package-lock.json` endi mavjud emas — uni qaytadan yaratmang.
+
+[build]
+  base = "."
+  command = "npm run build"
+  publish = "web/dist"
+  # Frontendga tegishli fayl o'zgarmasa build'ni o'tkazib yuboramiz.
+  # CACHED_COMMIT_REF bo'sh bo'lsa (birinchi deploy) build baribir boradi.
+  ignore = 'test -n "$CACHED_COMMIT_REF" && git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- web/ package.json package-lock.json netlify.toml'
+
+[build.environment]
+  NODE_VERSION = "22"
+  NPM_FLAGS = "--no-audit --no-fund"
+
+# SPA: barcha route'lar index.html'ga (React Router), fayllar o'zi xizmat qilinadi.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Hashlangan asset'lar — o'zgarmas, bir yil kesh.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Cross-Origin-Opener-Policy = "same-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), interest-cohort=()"
