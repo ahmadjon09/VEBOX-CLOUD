@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+Allow: /docs
+Allow: /status
+Allow: /terms
+Allow: /privacy
+Disallow: /console
+Disallow: /media/
+Disallow: /admin
+Disallow: /keys
+Disallow: /profile
+Disallow: /analytics
+Disallow: /login
+Disallow: /signup
+
+Sitemap: https://vebox.uz/sitemap.xml

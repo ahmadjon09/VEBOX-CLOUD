@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <rect width="100%" height="100%" fill="#1e1e1e"/>
+  <text x="200" y="120" font-family="monospace" font-size="48" fill="#f48771" text-anchor="middle" font-weight="bold">404</text>
+  <text x="200" y="160" font-family="monospace" font-size="16" fill="#858585" text-anchor="middle">Image Not Found</text>
+  <line x1="120" y1="180" x2="280" y2="180" stroke="#3c3c3c" stroke-width="1"/>
+  <text x="200" y="210" font-family="monospace" font-size="12" fill="#616161" text-anchor="middle">VEBOX media delivery</text>
+</svg>

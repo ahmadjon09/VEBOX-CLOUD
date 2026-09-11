@@ -1,0 +1,274 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #1e1e1e;
+
+  --color-panel: #252526;
+
+  --color-panel2: #2d2d2d;
+
+  --color-titlebar: #323233;
+
+  --color-line: #3c3c3c;
+
+  --color-line2: #4f5254;
+
+  --color-fg: #d4d4d4;
+
+  --color-mut: #858585;
+
+  --color-dim: #616161;
+
+  --color-accent: #007acc;
+
+  --color-accent2: #3794ff;
+
+  --color-ok: #89d185;
+
+  --color-teal: #4ec9b0;
+
+  --color-warn: #dcdcaa;
+
+  --color-err: #f48771;
+
+  --color-tok-k: #c586c0;
+
+  --color-tok-s: #ce9178;
+
+  --color-tok-n: #b5cea8;
+
+  --color-tok-f: #dcdcaa;
+
+  --color-tok-c: #6a9955;
+
+  --color-tok-b: #569cd6;
+
+  --font-mono: "Cascadia Code", "JetBrains Mono", "SF Mono", "Cascadia Mono",
+    Consolas, "Liberation Mono", Menlo, monospace;
+
+  --text-micro: 0.625rem;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+  background: var(--color-ink);
+  color: var(--color-fg);
+  font-family: var(--font-mono);
+  font-size: 15px;
+  letter-spacing: 0.01em;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: #ffffff;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #4a4a4a transparent;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4a4a4a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5a5a5a;
+}
+button{
+  cursor: pointer;
+}
+
+.micro {
+  font-size: 0.625rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.term-line {
+  display: block;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.bg-grid {
+  background-image: linear-gradient(rgba(64, 64, 64, 0.5) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(64, 64, 64, 0.5) 1px, transparent 1px);
+  background-size: 56px 56px;
+  background-position: center top;
+}
+
+.hero-glow {
+  background: radial-gradient(700px 320px at 74% 8%, rgba(0, 122, 204, 0.16), transparent 70%);
+}
+
+.masonry {
+  columns: 1;
+  column-gap: 10px;
+}
+
+@media (min-width: 480px) {
+  .masonry {
+    columns: 2;
+  }
+}
+
+@media (min-width: 768px) {
+  .masonry {
+    columns: 3;
+  }
+}
+
+@media (min-width: 1100px) {
+  .masonry {
+    columns: 4;
+  }
+}
+
+@media (min-width: 1500px) {
+  .masonry {
+    columns: 5;
+  }
+}
+
+.masonry>* {
+  break-inside: avoid;
+  margin-bottom: 10px;
+}
+
+.media-fade {
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.media-fade.is-loaded {
+  opacity: 1;
+}
+
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  stroke: var(--color-line);
+}
+
+.recharts-default-tooltip {
+  background: var(--color-panel2) !important;
+  border: 1px solid var(--color-line2) !important;
+  border-radius: 2px !important;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--color-fg);
+}
+
+:focus-visible {
+  outline: 1px solid var(--color-accent2);
+  outline-offset: 1px;
+}
+
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.tok-k {
+  color: var(--color-tok-k);
+}
+
+.tok-s {
+  color: var(--color-tok-s);
+}
+
+.tok-n {
+  color: var(--color-tok-n);
+}
+
+.tok-f {
+  color: var(--color-tok-f);
+}
+
+.tok-c {
+  color: var(--color-tok-c);
+  font-style: italic;
+}
+
+.tok-b {
+  color: var(--color-tok-b);
+}
+
+.tok-p {
+  color: #d4d4d4;
+}
+
+@keyframes vb-blink {
+
+  0%,
+  49% {
+    opacity: 1;
+  }
+
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.cursor-blink {
+  animation: vb-blink 1.1s steps(1) infinite;
+}
+
+.hero-caret {
+  display: inline-block;
+  width: 0.5em;
+  height: 0.72em;
+  margin-left: 0.12em;
+  background: var(--color-accent2);
+  vertical-align: -0.04em;
+  animation: vb-blink 1.1s steps(1) infinite;
+}
+
+@keyframes vb-type-in {
+  from {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.type-in {
+  animation: vb-type-in 0.25s ease both;
+}
+
+.tab-item {
+  transition: background 0.12s ease, border-color 0.12s ease;
+}
+
+.lift {
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.lift:hover {
+  transform: translateY(-3px);
+}
+
+kbd.k {
+  display: inline-block;
+  min-width: 1.6em;
+  padding: 2px 7px;
+  border: 1px solid var(--color-line2);
+  border-bottom-width: 2px;
+  border-radius: 3px;
+  background: var(--color-panel2);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  line-height: 1.4;
+  color: var(--color-fg);
+  text-align: center;
+}
